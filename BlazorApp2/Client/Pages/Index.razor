@@ -1,0 +1,29 @@
+﻿@page "/"
+@inject HttpClient hc
+
+<div>
+    
+        <b>@Bla</b>
+  
+        </div>
+
+<div>
+    <i>Normalan tekst</i>
+</div>
+<div class="mojaCSSklasa">
+    <i>Moj tekst</i>
+</div>
+<div>
+<button class="mojaCSSklasa" @onclick=Foo>Kliiiik</button>
+</div>
+@code
+{
+    public int BrojPuta { get; set; }
+    public string Bla{ get; set; }
+
+    public async void Foo()
+    {
+        Bla = await hc.GetStringAsync("test");
+        StateHasChanged();
+    }
+}
